@@ -5,7 +5,9 @@ import router from './routes/router.jsx';
 import ContextProvider from './provider/ContextProvider.jsx';
 
 createRoot(document.getElementById('root')).render(
-  <ContextProvider>
-    <RouterProvider router={router} />
-  </ContextProvider>,
+  <div className='bg-slate-50'>
+    <ContextProvider>
+      <RouterProvider router={router} />
+    </ContextProvider>
+  </div>
 );

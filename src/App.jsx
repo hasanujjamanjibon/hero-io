@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Header />
-      <div>
+      <div className='min-h-[calc(100vh-85px)] max-w-6xl mx-auto px-4 md:px-8 py-8'>
         <Outlet />
       </div>
       <Footer />
