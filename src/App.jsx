@@ -1,9 +1,17 @@
-import ContextWrapper from './provider/ContextWrapper';
+import { Outlet } from 'react-router';
+import Footer from './shared/Footer/Footer';
+import Header from './shared/Header/Header';
 
 function App() {
-  const { handleName } = ContextWrapper();
-  handleName();
-  return <div>Home Page </div>;
+  return (
+    <>
+      <Header />
+      <div>
+        <Outlet />
+      </div>
+      <Footer />
+    </>
+  );
 }
 
 export default App;
