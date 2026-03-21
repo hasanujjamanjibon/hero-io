@@ -25,15 +25,15 @@ const Details = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      setIsLoading(false);
       const match = storedData.includes(Number(id));
       if (match) {
         setInstalled(true);
       } else {
         setInstalled(false);
       }
+      setIsLoading(false);
     }, 1000);
-  }, [id, setInstalled]);
+  }, [storedData, id, setInstalled]);
 
   if (isLoading) {
     return <DetailsSkeltonLoader />;
@@ -59,14 +59,14 @@ const Details = () => {
             <div className='h-0.5 bg-gray-200 my-6'></div>
             {/* Stats */}
             <div className='flex flex-wrap justify-center md:justify-start gap-12 mt-4 text-center'>
-              <div>
+              <div className='space-y-1'>
                 <img
-                  className='h-6 w-6 mx-auto'
+                  className='h-10 w-10 mx-auto'
                   src='/assets/icon-downloads.png'
                   alt='Downloads'
                 />
                 <p className='text-sm text-gray-500'>Downloads</p>
-                <p className='font-semibold'>
+                <p className='font-extrabold text-4xl'>
                   {' '}
                   {downloads >= 1000000
                     ? `${downloads / 1000000}M`
@@ -74,24 +74,24 @@ const Details = () => {
                 </p>
               </div>
 
-              <div>
+              <div className='space-y-1'>
                 <img
-                  className='h-6 w-6 mx-auto'
+                  className='h-10 w-10 mx-auto'
                   src='/assets/icon-ratings.png'
                   alt='Average Ratings'
                 />
                 <p className='text-sm text-gray-500'>Average Ratings</p>
-                <p className='font-semibold'>{Math.round(ratingAvg)}</p>
+                <p className='font-extrabold text-4xl'>{ratingAvg}</p>
               </div>
 
-              <div>
+              <div className='space-y-1'>
                 <img
-                  className='h-6 w-6 mx-auto'
+                  className='h-10 w-10 mx-auto'
                   src='/assets/icon-review.png'
                   alt='Total Reviews'
                 />
                 <p className='text-sm text-gray-500'>Total Reviews</p>
-                <p className='font-semibold'>
+                <p className='font-extrabold text-4xl'>
                   {reviews >= 1000000
                     ? `${reviews / 1000000}M`
                     : `${Math.floor(reviews / 1000)}K`}
@@ -101,10 +101,12 @@ const Details = () => {
             {/* Button */}
             <button
               onClick={() => handleAddData(appId)}
-              disabled={installed}
-              className={`mt-4 text-white px-4 py-2 rounded-lg ${installed ? 'bg-gray-400 !cursor-not-allowed' : 'bg-green-400 hover:bg-green-500 transition-all duration-300 hover:scale-90 '}`}
+              disabled={installed == true}
+              className={`mt-4 text-white px-4 py-2 rounded-lg ${isLoading || installed ? 'bg-gray-400 !cursor-not-allowed' : 'bg-green-400 hover:bg-green-500 transition-all duration-300 hover:scale-90 '}`}
             >
-              {installed ? 'Installed' : `Install Now (${size || 0} MB)`}
+              {isLoading || installed
+                ? 'Installed'
+                : `Install Now (${size || 0} MB)`}
             </button>
           </div>
         </div>

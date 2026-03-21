@@ -43,7 +43,7 @@ const InstalledCard = ({ app }) => {
                 src='/assets/icon-ratings.png'
                 alt='Average Ratings'
               />
-              <span className='text-gray-600'>{Math.round(ratingAvg)}</span>
+              <span className='text-gray-600'>{ratingAvg}</span>
             </div>
 
             <div className='text-gray-500 font-normal'>{size} MB</div>

@@ -40,7 +40,7 @@ const AppCard = ({ app, hoveredId, setHoveredId }) => {
         {/* Rating */}
         <div className='flex items-center gap-1 bg-orange-100 text-orange-500 px-3 py-1 rounded-lg text-sm font-medium'>
           <RiStarFill size={20} />
-          {Math.round(app.ratingAvg)}
+          {app?.ratingAvg}
         </div>
       </div>
     </Link>

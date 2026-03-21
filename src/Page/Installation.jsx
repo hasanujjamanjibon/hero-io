@@ -10,6 +10,20 @@ const Installation = () => {
   const { storedData, apps } = ContextWrapper();
   const [filteredData, setFilteredData] = useState(storedData);
 
+  const handleSortBySize = (order) => {
+    const sortedData = [...filteredData].sort((a, b) => {
+      console.log(a.size);
+      console.log(b.size);
+
+      if (order === 'Low - high') {
+        return a.downloads - b.downloads;
+      } else {
+        return b.downloads - a.downloads;
+      }
+    });
+    setFilteredData(sortedData);
+  };
+
   useEffect(() => {
     setTimeout(() => {
       const savedIds = JSON.parse(localStorage.getItem('installedApps'));
@@ -38,6 +52,7 @@ const Installation = () => {
         </h3>
         <select
           defaultValue='Sort By Size'
+          onChange={(e) => handleSortBySize(e.target.value)}
           className='select appearance-none w-fit focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-md border border-gray-300  py-2 text-sm text-gray-700'
         >
           <option disabled={true}>Sort By Size</option>

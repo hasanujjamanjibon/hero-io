@@ -28,6 +28,7 @@ const TrendingSection = () => {
               .fill(0)
               .map((_, i) => <SkeletonCard key={i} />)
           : apps
+              ?.sort((a, b) => b.ratingAvg - a.ratingAvg)
               ?.slice(0, 8)
               ?.map((app) => (
                 <AppCard

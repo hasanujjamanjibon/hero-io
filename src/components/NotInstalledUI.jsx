@@ -7,14 +7,11 @@ export default function NotInstalledUI() {
       {/* Icon */}
       <div className='bg-gray-100 p-6 rounded-full'>
         <RiDropboxFill size={120} className='text-5xl text-gray-400' />
-        {/* className='text-5xl text-gray-400' /> */}
       </div>
-
       {/* Title */}
       <h2 className='mt-6 text-xl font-semibold text-gray-700'>
         No Apps Installed
       </h2>
-
       {/* Description */}
       <p className='mt-2 text-gray-500 max-w-md'>
         You don’t have any installed apps yet.
