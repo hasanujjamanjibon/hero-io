@@ -11,8 +11,6 @@ const ContextProvider = ({ children }) => {
 
   // handle remove data from local storage
   const handleRemoveData = (appId) => {
-    console.log(appId);
-
     const existingIDs = JSON.parse(localStorage.getItem('installedApps')) || [];
     const updatedIDs = existingIDs.filter((id) => id !== appId);
     localStorage.setItem('installedApps', JSON.stringify(updatedIDs));
@@ -68,7 +66,7 @@ const ContextProvider = ({ children }) => {
         }
       };
       fetchApps();
-    }, 800);
+    }, 1000);
   }, []);
 
   return <StateContext.Provider value={data}>{children}</StateContext.Provider>;
