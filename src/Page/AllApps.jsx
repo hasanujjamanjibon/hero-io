@@ -29,9 +29,7 @@ const AllApps = () => {
   }, [searchTerm, apps]);
   return (
     <div className='my-12 '>
-      <div
-        className={`text-center mb-12 px-4  md:px-8 lg:px-16 space-y-4 ${!loading && filteredApps.length === 0 && 'hidden'}`}
-      >
+      <div className={`text-center mb-12 px-4  md:px-8 lg:px-16 space-y-4`}>
         {/* Title */}
         <h2 className='text-4xl md:text-5xl font-bold text-[#001d3d] '>
           Our All Applications
@@ -43,7 +41,7 @@ const AllApps = () => {
         </p>
       </div>
       <div
-        className={`flex justify-between items-center max-w-6xl mx-auto px-4 md:px-8 mb-6 ${!loading && filteredApps.length === 0 && 'hidden'}`}
+        className={`flex justify-between items-center max-w-6xl mx-auto px-4 md:px-8 mb-6 `}
       >
         <h3 className='text-2xl font-medium text-gray-800 mb-4 text-center'>
           ({filteredApps?.length}) Apps Found

@@ -9,12 +9,6 @@ const AppNotFoundPage = () => {
         The App you are requesting is not found on our system. please try
         another apps
       </p>
-      <Link
-        to='/'
-        className='bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded'
-      >
-        Go Back!
-      </Link>
     </div>
   );
 };
